@@ -1,7 +1,7 @@
 
 # Testing CVE-2024-2961 (V1 - Under Analysis)
 
-This repository contains a C program to test for CVE-2024-2961, which involves a buffer overflow vulnerability in the `iconv()` function of the GNU C Library (glibc).
+This repository contains a C program to test for CVE-2024-2961, which involves a buffer overflow vulnerability in the `iconv()` function of the GNU C Library (glibc). Due to the structure of PHP’s heap, this overflow can be exploited to modify part of a free list pointer, ultimately providing an arbitrary write primitive within the program’s memory. Consequently, any attacker with a file read vulnerability and a controlled prefix on a PHP application can achieve RCE. Similarly, forcing PHP to call iconv() with controlled parameters grants the attacker the same capability.
 
 ## Prerequisites
 
@@ -85,6 +85,11 @@ AddressSanitizer will provide detailed information if there is a buffer overflow
 ## Mitigation
 
 If the vulnerability is confirmed, consider updating glibc to a version where this issue is patched. You can download and install the latest version from the GNU project's website or your distribution's package manager.
+
+## Research
+
+For more details on this vulnerability, you can read the following research article:
+[GLIBC Flaw CVE-2024-2961 Opens Door to RCE, PoC Exploit Published](https://securityonline.info/glibc-flaw-cve-2024-2961-opens-door-to-rce-poc-exploit-published/)
 
 ## Disclaimer
 
