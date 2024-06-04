@@ -1,5 +1,5 @@
 
-# Testing CVE-2024-2961
+# Testing CVE-2024-2961 (V1 - Under Analysis)
 
 This repository contains a C program to test for CVE-2024-2961, which involves a buffer overflow vulnerability in the `iconv()` function of the GNU C Library (glibc).
 
